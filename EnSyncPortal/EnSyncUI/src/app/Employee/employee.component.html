@@ -1,0 +1,97 @@
+<div class="card card-cascade narrower">
+
+    <!--Card image-->
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+  
+      <div>
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <mdb-icon icon="th-large" class="mt-0"></mdb-icon>
+        </button>
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <mdb-icon icon="columns" class="mt-0"></mdb-icon>
+        </button>
+      </div>
+  
+      <a href="" class="white-text mx-3">Employee Registry</a>
+  
+      <div>
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <mdb-icon icon="pencil" class="mt-0"></mdb-icon>
+        </button>
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <mdb-icon icon="remove" class="mt-0"></mdb-icon>
+        </button>
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <mdb-icon icon="info-circle" class="mt-0"></mdb-icon>
+        </button>
+      </div>
+  
+    </div>
+    <!--/Card image-->
+  
+    <div class="px-4">
+  
+      <div class="table-wrapper">
+        <!--Table-->
+        <table class="table table-hover mb-0">
+  
+          <!--Table head-->
+          <thead>
+            <tr>
+              <th>
+                <mdb-checkbox></mdb-checkbox>
+              </th>
+              <th class="th-lg">
+                <a (click)="sortBy('EMPLOYEE_ID')">Employee Id
+                  <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                </a>
+              </th>
+              <th class="th-lg">
+                <a (click)="sortBy('FIRST_NAME')">First Name
+                  <mdb-icon icon="th-sort" class="ml-1"></mdb-icon>
+                </a>
+              </th>
+              <th class="th-lg">
+                <a (click)="sortBy('LAST_NAME')">Last Name
+                  <mdb-icon icon="th-sort" class="ml-1"></mdb-icon>
+                </a>
+              </th>
+              <th class="th-lg">
+                <a (click)="sortBy('SSN')">SSN
+                  <mdb-icon icon="th-sort" class="ml-1"></mdb-icon>
+                </a>
+              </th>
+              <th class="th-lg">
+                <a (click)="sortBy('DOB')">DOB
+                  <mdb-icon icon="th-sort" class="ml-1"></mdb-icon>
+                </a>
+              </th>
+              <th class="th-lg">
+                <a (click)="sortBy('GENDER')">Gender
+                  <mdb-icon icon="th-sort" class="ml-1"></mdb-icon>
+                </a>
+              </th>
+            </tr>
+          </thead>
+          <!--Table head-->
+  
+          <!--Table body-->
+          <tbody>
+            <tr *ngFor="let employee of employees;let i = index">
+              <th scope="row">
+                <mdb-checkbox></mdb-checkbox>
+              </th>
+              <td>{{employee.EMPLOYEE_ID}}</td>
+              <td>{{employee.FIRST_NAME}}</td>
+              <td>{{employee.LAST_NAME}}</td>
+              <td>{{employee.SSN}}</td>
+              <td>{{employee.DOB}}</td>
+              <td>{{employee.GENDER}}</td>
+            </tr>
+          </tbody>
+          <!--Table body-->
+        </table>
+        <!--Table-->
+      </div>
+    </div>
+  </div>
