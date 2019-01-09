@@ -4,5 +4,11 @@ The premise of the EnSync Portal to track and manage employees within a company 
 
 This is the initial scaffolding with a few pieces that are not yet implemented. Soon this project will include an Angular UI that calls the API powered by Entity Framework.
 
-# Coming up
-Angular integration into the project with API powered from Entity Framework.
+# Done
+Angular integration into the project with API powered from Entity Framework. 
+
+# Coming Up
+Implement CRUD features
+
+Refactor UI code
+
