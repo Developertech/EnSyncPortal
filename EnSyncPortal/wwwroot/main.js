@@ -373,7 +373,7 @@ var EmployeeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table style=\"width:100%\">\r\n  <tr>\r\n    <td><a>Profile</a></td>\r\n    <td><a>Edit</a></td>\r\n    <td><a>Delete</a></td>\r\n  </tr>\r\n</table>\n"
+module.exports = "<table>\r\n  <tr style=\"width:100%\">\r\n    <a (click)=\"GetEmployeeProfile(employeeId)\">- Profile</a>\r\n  </tr>\r\n  <tr style=\"width:100%\">\r\n    <a (click)=\"DeleteEmployee(employeeId)\">- Delete</a>\r\n  </tr>\r\n</table>\r\n"
 
 /***/ }),
 
@@ -384,7 +384,7 @@ module.exports = "<table style=\"width:100%\">\r\n  <tr>\r\n    <td><a>Profile</
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlbXBsb3llZS1hY3Rpb24vZW1wbG95ZWUtYWN0aW9uLmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
@@ -414,9 +414,15 @@ var EmployeeActionComponent = /** @class */ (function () {
     }
     EmployeeActionComponent.prototype.ngOnInit = function () {
     };
+    EmployeeActionComponent.prototype.GetByEmployeeId = function (employeeId) {
+        return;
+    };
+    EmployeeActionComponent.prototype.DeleteEmployee = function (employeeId) {
+        return;
+    };
     EmployeeActionComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-employee.action',
+            selector: 'app-employee-action',
             template: __webpack_require__(/*! ./employee-action.component.html */ "./src/app/Employee/employee-action/employee-action.component.html"),
             styles: [__webpack_require__(/*! ./employee-action.component.scss */ "./src/app/Employee/employee-action/employee-action.component.scss")]
         }),
@@ -447,7 +453,7 @@ module.exports = "<i class=\"mt-0 fa fa-plus-square\" aria-hidden=\"true\" (clic
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlbXBsb3llZS1mb3JtL2VtcGxveWVlLWZvcm0uY29tcG9uZW50LnNjc3MifQ== */"
 
 /***/ }),
 
@@ -499,7 +505,7 @@ var EmployeeFormComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card card-cascade narrower\">\r\n\r\n    <!--Card image-->\r\n    <div class=\"view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center\">\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"th-large\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"columns\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n      </div>\r\n  \r\n      <a href=\"\" class=\"white-text mx-3\">Employee Dashboard</a>\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"pencil\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"remove\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"info-circle\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <app-employee-form class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <i class=\"mt-0 fa fa-plus-square\"></i>\r\n        </app-employee-form>\r\n      </div>\r\n  \r\n    </div>\r\n    <!--/Card image-->\r\n  \r\n    <div class=\"px-4\">\r\n  \r\n      <div class=\"table-wrapper\">\r\n        <!--Table-->\r\n        <table class=\"table table-hover mb-0\">\r\n  \r\n          <!--Table head-->\r\n          <thead>\r\n            <tr>\r\n              <th>\r\n                <app-employee-action></app-employee-action>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('EMPLOYEE_ID')\">Employee Id\r\n                  <mdb-icon icon=\"sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('FIRST_NAME')\">First Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('LAST_NAME')\">Last Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('SSN')\">SSN\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('DOB')\">DOB\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('GENDER')\">Gender\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n            </tr>\r\n          </thead>\r\n          <!--Table head-->\r\n  \r\n          <!--Table body-->\r\n          <tbody>\r\n            <tr *ngFor=\"let employee of employees;let i = index\">\r\n              <th scope=\"row\">\r\n                <mdb-checkbox></mdb-checkbox>\r\n              </th>\r\n              <td>{{employee.EMPLOYEE_ID}}</td>\r\n              <td>{{employee.FIRST_NAME}}</td>\r\n              <td>{{employee.LAST_NAME}}</td>\r\n              <td>{{employee.SSN}}</td>\r\n              <td>{{employee.DOB}}</td>\r\n              <td>{{employee.GENDER}}</td>\r\n            </tr>\r\n          </tbody>\r\n          <!--Table body-->\r\n        </table>\r\n        <!--Table-->\r\n      </div>\r\n    </div>\r\n  </div>\r\n"
+module.exports = "<div class=\"card card-cascade narrower\">\r\n\r\n    <!--Card image-->\r\n    <div class=\"view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center\">\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"th-large\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"columns\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n      </div>\r\n  \r\n      <a href=\"\" class=\"white-text mx-3\">Employee Dashboard</a>\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"pencil\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"remove\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"info-circle\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <app-employee-form class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <i class=\"mt-0 fa fa-plus-square\"></i>\r\n        </app-employee-form>\r\n      </div>\r\n  \r\n    </div>\r\n    <!--/Card image-->\r\n  \r\n    <div class=\"px-4\">\r\n  \r\n      <div class=\"table-wrapper\">\r\n        <!--Table-->\r\n        <table class=\"table table-hover mb-0\">\r\n  \r\n          <!--Table head-->\r\n          <thead>\r\n            <tr>\r\n              <th>\r\n                <b>Actions</b>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('EMPLOYEE_ID')\">Employee Id\r\n                  <mdb-icon icon=\"sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('FIRST_NAME')\">First Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('LAST_NAME')\">Last Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('SSN')\">SSN\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('DOB')\">DOB\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('GENDER')\">Gender\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n            </tr>\r\n          </thead>\r\n          <!--Table head-->\r\n  \r\n          <!--Table body-->\r\n          <tbody style=\"width:100%\">\r\n            <tr *ngFor=\"let employee of employees;let i = index\">\r\n              <th scope=\"row\">\r\n                <app-employee-action></app-employee-action>\r\n              </th>\r\n              <td>{{employee.EMPLOYEE_ID}}</td>\r\n              <td>{{employee.FIRST_NAME}}</td>\r\n              <td>{{employee.LAST_NAME}}</td>\r\n              <td>{{employee.SSN}}</td>\r\n              <td>{{employee.DOB}}</td>\r\n              <td>{{employee.GENDER}}</td>\r\n            </tr>\r\n          </tbody>\r\n          <!--Table body-->\r\n        </table>\r\n        <!--Table-->\r\n      </div>\r\n    </div>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -613,7 +619,7 @@ module.exports = "<!--Double navigation-->\r\n<header>\r\n  <!-- Sidebar navigat
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAuY29tcG9uZW50LnNjc3MifQ== */"
 
 /***/ }),
 
@@ -656,8 +662,8 @@ var AppComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")],
-            providers: [_Employee_employee_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeService"]]
+            providers: [_Employee_employee_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeService"]],
+            styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
         }),
         __metadata("design:paramtypes", [_Employee_employee_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeService"]])
     ], AppComponent);

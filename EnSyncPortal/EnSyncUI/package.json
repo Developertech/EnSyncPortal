@@ -29,10 +29,11 @@
     "ng-uikit-pro-standard": "git+https://oauth2:vo3Hnxysa3QXmyGXuQvB@git.mdbootstrap.com/mdb/angular/ng-uikit-pro-standard.git",
     "rxjs": "~6.2.0",
     "screenfull": "^3.3.0",
+    "webpack-dev-server": "^3.1.14",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.8.0",
+    "@angular-devkit/build-angular": "^0.12.0",
     "@angular/cli": "~6.2.6",
     "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",
