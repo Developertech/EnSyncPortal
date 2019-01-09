@@ -315,7 +315,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployeeComponent", function() { return EmployeeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _EmployeeResultsService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeeResultsService */ "./src/app/Employee/EmployeeResultsService.ts");
+/* harmony import */ var _employee_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./employee.service */ "./src/app/Employee/employee.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -357,7 +357,7 @@ var EmployeeComponent = /** @class */ (function () {
             selector: 'employee-table',
             template: __webpack_require__(/*! ./employee.component.html */ "./src/app/Employee/employee.component.html")
         }),
-        __metadata("design:paramtypes", [_EmployeeResultsService__WEBPACK_IMPORTED_MODULE_1__["EmployeeResultService"]])
+        __metadata("design:paramtypes", [_employee_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeService"]])
     ], EmployeeComponent);
     return EmployeeComponent;
 }());
@@ -366,18 +366,39 @@ var EmployeeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/Employee/EmployeeResultsService.ts":
-/*!****************************************************!*\
-  !*** ./src/app/Employee/EmployeeResultsService.ts ***!
-  \****************************************************/
-/*! exports provided: EmployeeResultService */
+/***/ "./src/app/Employee/employee-action/employee-action.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/Employee/employee-action/employee-action.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<table style=\"width:100%\">\r\n  <tr>\r\n    <td><a>Profile</a></td>\r\n    <td><a>Edit</a></td>\r\n    <td><a>Delete</a></td>\r\n  </tr>\r\n</table>\n"
+
+/***/ }),
+
+/***/ "./src/app/Employee/employee-action/employee-action.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/Employee/employee-action/employee-action.component.scss ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/Employee/employee-action/employee-action.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/Employee/employee-action/employee-action.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: EmployeeActionComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployeeResultService", function() { return EmployeeResultService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployeeActionComponent", function() { return EmployeeActionComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -388,19 +409,83 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-var EmployeeResultService = /** @class */ (function () {
-    function EmployeeResultService(api) {
-        this.api = api;
+var EmployeeActionComponent = /** @class */ (function () {
+    function EmployeeActionComponent() {
     }
-    EmployeeResultService.prototype.getAllEmployees = function () {
-        return this.api.getAllEmployees();
+    EmployeeActionComponent.prototype.ngOnInit = function () {
     };
-    EmployeeResultService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
-    ], EmployeeResultService);
-    return EmployeeResultService;
+    EmployeeActionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-employee.action',
+            template: __webpack_require__(/*! ./employee-action.component.html */ "./src/app/Employee/employee-action/employee-action.component.html"),
+            styles: [__webpack_require__(/*! ./employee-action.component.scss */ "./src/app/Employee/employee-action/employee-action.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], EmployeeActionComponent);
+    return EmployeeActionComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Employee/employee-form/employee-form.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/Employee/employee-form/employee-form.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<i class=\"mt-0 fa fa-plus-square\" aria-hidden=\"true\" (click)=\"basicModal.show()\"></i>\r\n<!--<button type=\"button\" class=\"fa fa-plus-square\" aria-hidden=\"true\" (click)=\"basicModal.show()\" mdbWavesEffect></button>-->\r\n<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade right\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\"\r\n     aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\r\n          <span aria-hidden=\"true\">×</span>\r\n        </button>\r\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\">Modal title</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        ...\r\n      </div>\r\n      <div class=\"modal-footer justify-content-center\">\r\n        <button type=\"button\" mdbBtn color=\"secondary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"basicModal.hide()\" mdbWavesEffect>Close</button>\r\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"relative waves-light\" mdbWavesEffect>OK!</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/Employee/employee-form/employee-form.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/Employee/employee-form/employee-form.component.scss ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/Employee/employee-form/employee-form.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/Employee/employee-form/employee-form.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: EmployeeFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployeeFormComponent", function() { return EmployeeFormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EmployeeFormComponent = /** @class */ (function () {
+    function EmployeeFormComponent() {
+    }
+    EmployeeFormComponent.prototype.ngOnInit = function () {
+    };
+    EmployeeFormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-employee-form',
+            template: __webpack_require__(/*! ./employee-form.component.html */ "./src/app/Employee/employee-form/employee-form.component.html"),
+            styles: [__webpack_require__(/*! ./employee-form.component.scss */ "./src/app/Employee/employee-form/employee-form.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], EmployeeFormComponent);
+    return EmployeeFormComponent;
 }());
 
 
@@ -414,7 +499,48 @@ var EmployeeResultService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card card-cascade narrower\">\r\n\r\n    <!--Card image-->\r\n    <div class=\"view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center\">\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"th-large\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"columns\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n      </div>\r\n  \r\n      <a href=\"\" class=\"white-text mx-3\">Employee Registry</a>\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"pencil\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"remove\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"info-circle\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n      </div>\r\n  \r\n    </div>\r\n    <!--/Card image-->\r\n  \r\n    <div class=\"px-4\">\r\n  \r\n      <div class=\"table-wrapper\">\r\n        <!--Table-->\r\n        <table class=\"table table-hover mb-0\">\r\n  \r\n          <!--Table head-->\r\n          <thead>\r\n            <tr>\r\n              <th>\r\n                <mdb-checkbox></mdb-checkbox>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('EMPLOYEE_ID')\">Employee Id\r\n                  <mdb-icon icon=\"sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('FIRST_NAME')\">First Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('LAST_NAME')\">Last Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('SSN')\">SSN\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('DOB')\">DOB\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('GENDER')\">Gender\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n            </tr>\r\n          </thead>\r\n          <!--Table head-->\r\n  \r\n          <!--Table body-->\r\n          <tbody>\r\n            <tr *ngFor=\"let employee of employees;let i = index\">\r\n              <th scope=\"row\">\r\n                <mdb-checkbox></mdb-checkbox>\r\n              </th>\r\n              <td>{{employee.EMPLOYEE_ID}}</td>\r\n              <td>{{employee.FIRST_NAME}}</td>\r\n              <td>{{employee.LAST_NAME}}</td>\r\n              <td>{{employee.SSN}}</td>\r\n              <td>{{employee.DOB}}</td>\r\n              <td>{{employee.GENDER}}</td>\r\n            </tr>\r\n          </tbody>\r\n          <!--Table body-->\r\n        </table>\r\n        <!--Table-->\r\n      </div>\r\n    </div>\r\n  </div>"
+module.exports = "<div class=\"card card-cascade narrower\">\r\n\r\n    <!--Card image-->\r\n    <div class=\"view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center\">\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"th-large\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"columns\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n      </div>\r\n  \r\n      <a href=\"\" class=\"white-text mx-3\">Employee Dashboard</a>\r\n  \r\n      <div>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"pencil\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"remove\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <mdb-icon icon=\"info-circle\" class=\"mt-0\"></mdb-icon>\r\n        </button>\r\n        <app-employee-form class=\"btn btn-outline-white btn-rounded btn-sm px-2\">\r\n          <i class=\"mt-0 fa fa-plus-square\"></i>\r\n        </app-employee-form>\r\n      </div>\r\n  \r\n    </div>\r\n    <!--/Card image-->\r\n  \r\n    <div class=\"px-4\">\r\n  \r\n      <div class=\"table-wrapper\">\r\n        <!--Table-->\r\n        <table class=\"table table-hover mb-0\">\r\n  \r\n          <!--Table head-->\r\n          <thead>\r\n            <tr>\r\n              <th>\r\n                <app-employee-action></app-employee-action>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('EMPLOYEE_ID')\">Employee Id\r\n                  <mdb-icon icon=\"sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('FIRST_NAME')\">First Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('LAST_NAME')\">Last Name\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('SSN')\">SSN\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('DOB')\">DOB\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n              <th class=\"th-lg\">\r\n                <a (click)=\"sortBy('GENDER')\">Gender\r\n                  <mdb-icon icon=\"th-sort\" class=\"ml-1\"></mdb-icon>\r\n                </a>\r\n              </th>\r\n            </tr>\r\n          </thead>\r\n          <!--Table head-->\r\n  \r\n          <!--Table body-->\r\n          <tbody>\r\n            <tr *ngFor=\"let employee of employees;let i = index\">\r\n              <th scope=\"row\">\r\n                <mdb-checkbox></mdb-checkbox>\r\n              </th>\r\n              <td>{{employee.EMPLOYEE_ID}}</td>\r\n              <td>{{employee.FIRST_NAME}}</td>\r\n              <td>{{employee.LAST_NAME}}</td>\r\n              <td>{{employee.SSN}}</td>\r\n              <td>{{employee.DOB}}</td>\r\n              <td>{{employee.GENDER}}</td>\r\n            </tr>\r\n          </tbody>\r\n          <!--Table body-->\r\n        </table>\r\n        <!--Table-->\r\n      </div>\r\n    </div>\r\n  </div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/Employee/employee.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/Employee/employee.service.ts ***!
+  \**********************************************/
+/*! exports provided: EmployeeService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployeeService", function() { return EmployeeService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api.service */ "./src/app/api.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var EmployeeService = /** @class */ (function () {
+    function EmployeeService(api) {
+        this.api = api;
+    }
+    EmployeeService.prototype.getAllEmployees = function () {
+        return this.api.getAllEmployees();
+    };
+    EmployeeService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
+    ], EmployeeService);
+    return EmployeeService;
+}());
+
+
 
 /***/ }),
 
@@ -454,7 +580,7 @@ var ApiService = /** @class */ (function () {
     //}
     ApiService.prototype.getAllEmployees = function () {
         return this.http
-            .get(API_URL + '/api/GetAllEmployees');
+            .get('/api/GetAllEmployees');
     };
     ApiService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -476,7 +602,7 @@ var ApiService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--Double navigation-->\n<header>\n  <!-- Sidebar navigation -->\n  <mdb-side-nav #sidenav class=\"sn-bg-1 fixed\" [fixed]=\"true\">\n\n  <mdb-navbar-brand>\n      <!-- Logo -->\n      <li>\n          <div class=\"logo-wrapper waves-light\">\n              <a href=\"#\"><img src=\"https://mdbootstrap.com/img/logo/mdb-transparent.png\" class=\"img-fluid flex-center\"></a>\n          </div>\n      </li>\n      <!--/. Logo -->\n  </mdb-navbar-brand>\n\n  <links>\n      <!--Social-->\n      <li>\n          <ul class=\"social\">\n              <li><a class=\"icons-sm fb-ic\"><i class=\"fa fa-facebook\"> </i></a></li>\n              <li><a class=\"icons-sm pin-ic\"><i class=\"fa fa-pinterest\"> </i></a></li>\n              <li><a class=\"icons-sm gplus-ic\"><i class=\"fa fa-google-plus\"> </i></a></li>\n              <li><a class=\"icons-sm tw-ic\"><i class=\"fa fa-twitter\"> </i></a></li>\n          </ul>\n      </li>\n      <!--/Social-->\n      <!--Search Form-->\n      <li>\n          <form class=\"search-form\" role=\"search\">\n              <div class=\"form-group md-form mt-0 pt-1 waves-light\" mdbWavesEffect>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n              </div>\n          </form>\n      </li>\n      <!--/.Search Form-->\n      <!-- Side navigation links -->\n      <li>\n          <ul class=\"collapsible collapsible-accordion\">\n              <mdb-accordion [multiple]=\"false\" aria-multiselectable=\"false\">\n\n                  <!-- Collapsible link -->\n                  <mdb-accordion-item>\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-chevron-right\"></i> Collapsible menu</mdb-accordion-item-head>\n                      <mdb-accordion-item-body>\n                          <ul>\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 1</a></li>\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 2</a></li>\n                          </ul>\n                      </mdb-accordion-item-body>\n                  </mdb-accordion-item>\n\n                  <!-- Simple link -->\n                  <mdb-accordion-item class=\"no-collase\">\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-hand-pointer-o\"></i> Simple link</mdb-accordion-item-head>\n                      <mdb-accordion-item-body></mdb-accordion-item-body>\n                  </mdb-accordion-item>\n\n                  <!-- Collapsible link -->\n                  <mdb-accordion-item>\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-eye\"></i> Collapsible menu 2</mdb-accordion-item-head>\n                      <mdb-accordion-item-body>\n                          <ul>\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 1</a></li>\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 2</a></li>\n                          </ul>\n                      </mdb-accordion-item-body>\n                  </mdb-accordion-item>\n\n                      <!-- Simple link -->\n                      <mdb-accordion-item class=\"no-collase\">\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-diamond\"></i> Simple link 2</mdb-accordion-item-head>\n                      <mdb-accordion-item-body></mdb-accordion-item-body>\n                  </mdb-accordion-item>\n\n              </mdb-accordion>\n          </ul>\n      </li>\n      <!--/. Side navigation links -->\n      </links>\n      <div class=\"sidenav-bg mask-strong\"></div>\n  </mdb-side-nav>\n  <!--/. Sidebar navigation -->\n\n      <!-- Navbar -->\n  <mdb-navbar SideClass=\"navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav\" [containerInside]=\"false\">\n\n  <navlinks class=\"navbar-container\">\n      <!-- SideNav slide-out button -->\n      <div class=\"float-left\">\n          <a (click)=\"sidenav.show()\" class=\"button-collapse\"><i class=\"fa fa-bars\"></i></a>\n      </div>\n      <!--/. SideNav slide-out button -->\n  </navlinks>\n\n  <mdb-navbar-brand>\n      <!-- Breadcrumb-->\n      <div class=\"breadcrumbs breadcrumb-dn mr-auto\">\n          <p>Material Design for Bootstrap</p>\n      </div>\n      <!--/. Breadcrumb-->\n  </mdb-navbar-brand>\n\n  <navlinks>\n      <ul class=\"nav navbar-nav nav-flex-icons ml-auto ie-double-nav\">\n          <li class=\"nav-item\">\n          <a class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-envelope\"></i> <span class=\"clearfix d-none d-sm-inline-block\">Contact</span></a>\n      </li>\n      <li class=\"nav-item\">\n          <a class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-comments-o\"></i> <span class=\"clearfix d-none d-sm-inline-block\">Support</span></a>\n      </li>\n      <li class=\"nav-item\">\n          <a class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-user\"></i> <span class=\"clearfix d-none d-sm-inline-block\">Account</span></a>\n      </li>\n      <li class=\"nav-item dropdown btn-group\" dropdown>\n          <a dropdownToggle type=\"button\" class=\"nav-link dropdown-toggle waves-light\" mdbWavesEffect>\n              Dropdown\n          </a>\n          <div class=\"dropdown-menu dropdown-primary dropdown-menu-right\" role=\"menu\">\n              <a class=\"dropdown-item\" href=\"#\">Action</a>\n              <a class=\"dropdown-item\" href=\"#\">Another action</a>\n              <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n          </div>\n      </li>\n      </ul>\n  </navlinks>\n  </mdb-navbar>\n      <!--/. Navbar -->\n\n</header>\n<!--/.Double navigation-->\n\n<!--Main Layout-->\n<main>\n  <div class=\"container-fluid mt-5\">\n      <employee-table></employee-table>\n      <div style=\"height: 2000px\"></div>\n  </div>\n</main>\n<!--/Main layout-->"
+module.exports = "<!--Double navigation-->\r\n<header>\r\n  <!-- Sidebar navigation -->\r\n  <mdb-side-nav #sidenav class=\"sn-bg-1 fixed\" [fixed]=\"true\">\r\n\r\n  <mdb-navbar-brand>\r\n      <!-- Logo -->\r\n      <li>\r\n          <div class=\"logo-wrapper waves-light\">\r\n              <a href=\"#\"><img src=\"https://mdbootstrap.com/img/logo/mdb-transparent.png\" class=\"img-fluid flex-center\"></a>\r\n          </div>\r\n      </li>\r\n      <!--/. Logo -->\r\n  </mdb-navbar-brand>\r\n\r\n  <links>\r\n      <!--Social-->\r\n      <li>\r\n          <ul class=\"social\">\r\n              <li><a class=\"icons-sm fb-ic\"><i class=\"fa fa-facebook\"> </i></a></li>\r\n              <li><a class=\"icons-sm pin-ic\"><i class=\"fa fa-pinterest\"> </i></a></li>\r\n              <li><a class=\"icons-sm gplus-ic\"><i class=\"fa fa-google-plus\"> </i></a></li>\r\n              <li><a class=\"icons-sm tw-ic\"><i class=\"fa fa-twitter\"> </i></a></li>\r\n          </ul>\r\n      </li>\r\n      <!--/Social-->\r\n      <!--Search Form-->\r\n      <li>\r\n          <form class=\"search-form\" role=\"search\">\r\n              <div class=\"form-group md-form mt-0 pt-1 waves-light\" mdbWavesEffect>\r\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\r\n              </div>\r\n          </form>\r\n      </li>\r\n      <!--/.Search Form-->\r\n      <!-- Side navigation links -->\r\n      <li>\r\n          <ul class=\"collapsible collapsible-accordion\">\r\n              <mdb-accordion [multiple]=\"false\" aria-multiselectable=\"false\">\r\n\r\n                  <!-- Collapsible link -->\r\n                  <mdb-accordion-item>\r\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-chevron-right\"></i> Collapsible menu</mdb-accordion-item-head>\r\n                      <mdb-accordion-item-body>\r\n                          <ul>\r\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 1</a></li>\r\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 2</a></li>\r\n                          </ul>\r\n                      </mdb-accordion-item-body>\r\n                  </mdb-accordion-item>\r\n\r\n                  <!-- Simple link -->\r\n                  <mdb-accordion-item class=\"no-collase\">\r\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-hand-pointer-o\"></i> Simple link</mdb-accordion-item-head>\r\n                      <mdb-accordion-item-body></mdb-accordion-item-body>\r\n                  </mdb-accordion-item>\r\n\r\n                  <!-- Collapsible link -->\r\n                  <mdb-accordion-item>\r\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-eye\"></i> Collapsible menu 2</mdb-accordion-item-head>\r\n                      <mdb-accordion-item-body>\r\n                          <ul>\r\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 1</a></li>\r\n                              <li><a href=\"#\" class=\"waves-effect\" mdbWavesEffect>Link 2</a></li>\r\n                          </ul>\r\n                      </mdb-accordion-item-body>\r\n                  </mdb-accordion-item>\r\n\r\n                      <!-- Simple link -->\r\n                      <mdb-accordion-item class=\"no-collase\">\r\n                      <mdb-accordion-item-head mdbWavesEffect><i class=\"fa fa-diamond\"></i> Simple link 2</mdb-accordion-item-head>\r\n                      <mdb-accordion-item-body></mdb-accordion-item-body>\r\n                  </mdb-accordion-item>\r\n\r\n              </mdb-accordion>\r\n          </ul>\r\n      </li>\r\n      <!--/. Side navigation links -->\r\n      </links>\r\n      <div class=\"sidenav-bg mask-strong\"></div>\r\n  </mdb-side-nav>\r\n  <!--/. Sidebar navigation -->\r\n\r\n      <!-- Navbar -->\r\n  <mdb-navbar SideClass=\"navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav\" [containerInside]=\"false\">\r\n\r\n  <navlinks class=\"navbar-container\">\r\n      <!-- SideNav slide-out button -->\r\n      <div class=\"float-left\">\r\n          <a (click)=\"sidenav.show()\" class=\"button-collapse\"><i class=\"fa fa-bars\"></i></a>\r\n      </div>\r\n      <!--/. SideNav slide-out button -->\r\n  </navlinks>\r\n\r\n  <mdb-navbar-brand>\r\n      <!-- Breadcrumb-->\r\n      <div class=\"breadcrumbs breadcrumb-dn mr-auto\">\r\n          <p>Material Design for Bootstrap</p>\r\n      </div>\r\n      <!--/. Breadcrumb-->\r\n  </mdb-navbar-brand>\r\n\r\n  <navlinks>\r\n      <ul class=\"nav navbar-nav nav-flex-icons ml-auto ie-double-nav\">\r\n          <li class=\"nav-item\">\r\n          <a class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-envelope\"></i> <span class=\"clearfix d-none d-sm-inline-block\">Contact</span></a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n          <a class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-comments-o\"></i> <span class=\"clearfix d-none d-sm-inline-block\">Support</span></a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n          <a class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-user\"></i> <span class=\"clearfix d-none d-sm-inline-block\">Account</span></a>\r\n      </li>\r\n      <li class=\"nav-item dropdown btn-group\" dropdown>\r\n          <a dropdownToggle type=\"button\" class=\"nav-link dropdown-toggle waves-light\" mdbWavesEffect>\r\n              Dropdown\r\n          </a>\r\n          <div class=\"dropdown-menu dropdown-primary dropdown-menu-right\" role=\"menu\">\r\n              <a class=\"dropdown-item\" href=\"#\">Action</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n          </div>\r\n      </li>\r\n      </ul>\r\n  </navlinks>\r\n  </mdb-navbar>\r\n      <!--/. Navbar -->\r\n\r\n</header>\r\n<!--/.Double navigation-->\r\n\r\n<!--Main Layout-->\r\n<main>\r\n  <div class=\"container-fluid mt-5\">\r\n      <employee-table></employee-table>    \r\n      <div style=\"height: 2000px\"></div>\r\n  </div>\r\n</main>\r\n<!--/Main layout-->\r\n"
 
 /***/ }),
 
@@ -502,7 +628,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _Employee_EmployeeResultsService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Employee/EmployeeResultsService */ "./src/app/Employee/EmployeeResultsService.ts");
+/* harmony import */ var _Employee_employee_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Employee/employee.service */ "./src/app/Employee/employee.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -515,13 +641,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(employeeResultsService) {
-        this.employeeResultsService = employeeResultsService;
+    function AppComponent(employeeService) {
+        var _this = this;
+        this.employeeService = employeeService;
         //employees = [];
         this.employees = [];
-        // this.employeeResultsService.getAllEmployees().subscribe(res => {
-        //   this.employees = res.json() as EmployeeResult[];
-        // });      
+        this.employeeService.getAllEmployees().subscribe(function (res) {
+            _this.employees = res.json();
+        });
     }
     AppComponent.prototype.ngOnInit = function () {
     };
@@ -530,9 +657,9 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")],
-            providers: [_Employee_EmployeeResultsService__WEBPACK_IMPORTED_MODULE_1__["EmployeeResultService"]]
+            providers: [_Employee_employee_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeService"]]
         }),
-        __metadata("design:paramtypes", [_Employee_EmployeeResultsService__WEBPACK_IMPORTED_MODULE_1__["EmployeeResultService"]])
+        __metadata("design:paramtypes", [_Employee_employee_service__WEBPACK_IMPORTED_MODULE_1__["EmployeeService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -560,12 +687,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./api.service */ "./src/app/api.service.ts");
 /* harmony import */ var _Employee_Employee_Component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Employee/Employee.Component */ "./src/app/Employee/Employee.Component.ts");
+/* harmony import */ var _Employee_employee_form_employee_form_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Employee/employee-form/employee-form.component */ "./src/app/Employee/employee-form/employee-form.component.ts");
+/* harmony import */ var _Employee_employee_action_employee_action_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Employee/employee-action/employee-action.component */ "./src/app/Employee/employee-action/employee-action.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -583,7 +714,9 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _Employee_Employee_Component__WEBPACK_IMPORTED_MODULE_8__["EmployeeComponent"]
+                _Employee_Employee_Component__WEBPACK_IMPORTED_MODULE_8__["EmployeeComponent"],
+                _Employee_employee_form_employee_form_component__WEBPACK_IMPORTED_MODULE_9__["EmployeeFormComponent"],
+                _Employee_employee_action_employee_action_component__WEBPACK_IMPORTED_MODULE_10__["EmployeeActionComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],

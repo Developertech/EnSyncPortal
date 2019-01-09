@@ -10,11 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 import { ApiService } from './api.service';
 import { EmployeeComponent } from './Employee/Employee.Component';
+import { EmployeeFormComponent } from './Employee/employee-form/employee-form.component';
+import { EmployeeActionComponent } from './Employee/employee-action/employee-action.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeeFormComponent,
+    EmployeeActionComponent
   ],
   imports: [
     BrowserModule,

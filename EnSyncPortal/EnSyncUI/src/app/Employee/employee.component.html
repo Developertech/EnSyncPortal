@@ -12,7 +12,7 @@
         </button>
       </div>
   
-      <a href="" class="white-text mx-3">Employee Registry</a>
+      <a href="" class="white-text mx-3">Employee Dashboard</a>
   
       <div>
         <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -24,6 +24,9 @@
         <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
           <mdb-icon icon="info-circle" class="mt-0"></mdb-icon>
         </button>
+        <app-employee-form class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <i class="mt-0 fa fa-plus-square"></i>
+        </app-employee-form>
       </div>
   
     </div>
@@ -39,7 +42,7 @@
           <thead>
             <tr>
               <th>
-                <mdb-checkbox></mdb-checkbox>
+                <b>Actions</b>
               </th>
               <th class="th-lg">
                 <a (click)="sortBy('EMPLOYEE_ID')">Employee Id
@@ -76,10 +79,10 @@
           <!--Table head-->
   
           <!--Table body-->
-          <tbody>
+          <tbody style="width:100%">
             <tr *ngFor="let employee of employees;let i = index">
               <th scope="row">
-                <mdb-checkbox></mdb-checkbox>
+                <app-employee-action></app-employee-action>
               </th>
               <td>{{employee.EMPLOYEE_ID}}</td>
               <td>{{employee.FIRST_NAME}}</td>

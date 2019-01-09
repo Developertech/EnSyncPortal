@@ -7,7 +7,7 @@ interface Serializable<T> {
   deserialize(input: Object): T;
 }
 
-export class EmployeeResult {
+export class EmployeeModel {
   employeeId: string;
   controlId: string;
   SSN: string;

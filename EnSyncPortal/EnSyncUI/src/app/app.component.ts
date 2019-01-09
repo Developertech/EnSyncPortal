@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeResultService } from './Employee/EmployeeResultsService';
-import { EmployeeResult } from './Employee/Employee-Result-Model';
-import { EmployeeComponent } from './Employee/Employee.Component';
+import { EmployeeService } from './Employee/employee.service';
+import { EmployeeModel } from './Employee/employee.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [EmployeeResultService]
+  providers: [EmployeeService]
 })
 export class AppComponent implements OnInit {
 
   //employees = [];
-  private employees: EmployeeResult[] = [];
+  private employees: EmployeeModel[] = [];
   
-  constructor(private employeeResultsService: EmployeeResultService)
+  constructor(private employeeService: EmployeeService)
   {
-   // this.employeeResultsService.getAllEmployees().subscribe(res => {
-   //   this.employees = res.json() as EmployeeResult[];
-   // });      
+    this.employeeService.getAllEmployees().subscribe(res => {
+      this.employees = res.json() as EmployeeModel[];
+    });      
   }
 
   public ngOnInit() {

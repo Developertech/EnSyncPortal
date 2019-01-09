@@ -20,6 +20,6 @@ export class ApiService {
 
   public getAllEmployees() {
     return this.http
-      .get(API_URL + '/api/GetAllEmployees');
+      .get('/api/GetAllEmployees');
   }
 }

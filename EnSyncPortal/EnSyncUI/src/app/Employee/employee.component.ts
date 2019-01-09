@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeResult } from './Employee-Result-Model';
-import { EmployeeResultService } from './EmployeeResultsService';
+import { EmployeeModel } from './employee.model';
+import { EmployeeService } from './employee.service';
 
 @Component({
   selector: 'employee-table',
@@ -10,12 +10,12 @@ export class EmployeeComponent implements OnInit {
 
     private sorted = false;
 
-    private employees: EmployeeResult[] = [];
+    private employees: EmployeeModel[] = [];
 
-    constructor(private employeeResultsService: EmployeeResultService)
+  constructor(private employeeResultsService: EmployeeService)
     {
         this.employeeResultsService.getAllEmployees().subscribe(res => {
-            this.employees = res.json() as EmployeeResult[];
+            this.employees = res.json() as EmployeeModel[];
         });      
     }
 
