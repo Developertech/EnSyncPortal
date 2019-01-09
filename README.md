@@ -6,9 +6,11 @@ This is the initial scaffolding with a few pieces that are not yet implemented. 
 
 # Done
 Angular integration into the project with API powered from Entity Framework. 
+Light refactoring of the UI code
+Fixed security vulnerability
 
 # Coming Up
-Implement CRUD features
+Implement Full CRUD features
 
-Refactor UI code
+
 
